@@ -1,0 +1,13 @@
+path: /kaggle/working/dental-caries-19
+train: train/images
+val: valid/images
+test: test/images
+nc: 7
+names:
+- D0_sound
+- D1_first_change
+- D2_distinct_opacity
+- D3_enamel_breakdown
+- D4_dentin_shadow
+- D5_distinct_cavity
+- D6_extensive_cavity

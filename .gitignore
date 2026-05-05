@@ -1,0 +1,30 @@
+# Model weights — pakai Hugging Face Hub
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# Datasets — terlalu besar, sumber dari Roboflow/Kaggle
+data/raw/
+data/processed/
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Kaggle
+kaggle.json
+.kaggle/
+
+# OS
+.DS_Store
+Thumbs.db
