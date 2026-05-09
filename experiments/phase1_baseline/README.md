@@ -57,4 +57,4 @@
 Best & last weights tersedia di Hugging Face Hub:
 🤗 https://huggingface.co/<USERNAME>/smileguard-yolo/tree/main/phase1
 
-Update `<riexu>` setelah HF setup di Fase 2.
+Username Hugging Face: `riexu`
