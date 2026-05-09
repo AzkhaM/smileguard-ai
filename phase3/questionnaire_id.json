@@ -1,0 +1,322 @@
+{
+  "questionnaire_metadata": {
+    "name": "SmileGuard TMJ & Dental Screening",
+    "version": "1.0",
+    "language": "id-ID",
+    "total_items": 18,
+    "core_items": 8,
+    "conditional_items": 10,
+    "estimated_time_minutes": "2-5",
+    "based_on": "DC/TMD (Schiffman et al. 2014) + TMD Pain Screener (Gonzalez & Schiffman 2011)",
+    "validity_reference": {
+      "sensitivity": 0.83,
+      "specificity": 0.82,
+      "source": "Validation in headache center (Van der Meer et al. 2021)"
+    }
+  },
+
+  "answer_scale": {
+    "type": "likert_5",
+    "options": [
+      {"value": 0, "label_id": "Tidak pernah",      "label_short": "Tidak"},
+      {"value": 1, "label_id": "Jarang",             "label_short": "< 1x/bulan"},
+      {"value": 2, "label_id": "Kadang-kadang",      "label_short": "1-3x/bulan"},
+      {"value": 3, "label_id": "Sering",             "label_short": "1-3x/minggu"},
+      {"value": 4, "label_id": "Sangat sering",      "label_short": "Hampir setiap hari"}
+    ],
+    "instruction_id": "Pilih frekuensi yang paling sesuai dengan kondisi Anda dalam 30 hari terakhir."
+  },
+
+  "sections": [
+    {
+      "section_id": "A",
+      "section_name_id": "Gejala TMJ Utama",
+      "section_description_id": "Pertanyaan-pertanyaan ini telah divalidasi secara internasional untuk mendeteksi gangguan sendi rahang.",
+      "all_core": true,
+      "items": [
+        {
+          "id": "A1",
+          "type": "core",
+          "category": "tmj_pain",
+          "question_id": "Dalam 30 hari terakhir, seberapa sering Anda mengalami nyeri di rahang, pelipis, telinga, atau di depan telinga?",
+          "scale": "likert_5",
+          "weight": 3.5,
+          "source": "TMD Pain Screener Item 1"
+        },
+        {
+          "id": "A2",
+          "type": "core",
+          "category": "tmj_pain",
+          "question_id": "Dalam 30 hari terakhir, seberapa sering nyeri tersebut berubah (membaik atau memburuk) saat Anda menggerakkan rahang, mengunyah, atau berbicara?",
+          "scale": "likert_5",
+          "weight": 3.0,
+          "source": "TMD Pain Screener Item 2"
+        },
+        {
+          "id": "A3",
+          "type": "core",
+          "category": "headache",
+          "question_id": "Dalam 30 hari terakhir, seberapa sering Anda mengalami sakit kepala, terutama di area pelipis?",
+          "scale": "likert_5",
+          "weight": 2.5,
+          "source": "TMD Pain Screener Item 3"
+        },
+        {
+          "id": "A4",
+          "type": "core",
+          "category": "tmj_dysfunction",
+          "question_id": "Dalam 30 hari terakhir, seberapa sering rahang Anda terasa kaku, tersangkut, atau sulit dibuka lebar?",
+          "scale": "likert_5",
+          "weight": 3.5,
+          "source": "TMD Pain Screener Item 4"
+        },
+        {
+          "id": "A5",
+          "type": "core",
+          "category": "tmj_dysfunction",
+          "question_id": "Dalam 30 hari terakhir, seberapa sering Anda mendengar bunyi 'klik', 'pop', atau 'kletek' dari rahang saat membuka mulut atau mengunyah?",
+          "scale": "likert_5",
+          "weight": 2.5,
+          "source": "TMD Pain Screener Item 5"
+        },
+        {
+          "id": "A6",
+          "type": "core",
+          "category": "tmj_dysfunction",
+          "question_id": "Dalam 30 hari terakhir, seberapa sering Anda merasakan rasa kaku, tegang, atau nyeri di rahang saat bangun tidur?",
+          "scale": "likert_5",
+          "weight": 3.0,
+          "source": "TMD Pain Screener Item 6 + bruxism indicator"
+        }
+      ]
+    },
+
+    {
+      "section_id": "B",
+      "section_name_id": "Kebiasaan & Perilaku",
+      "section_description_id": "Pertanyaan tentang kebiasaan yang berkaitan dengan kesehatan gigi & rahang.",
+      "items": [
+        {
+          "id": "B1",
+          "type": "core",
+          "category": "bruxism",
+          "question_id": "Seberapa sering Anda menyadari menggertakkan atau menggesekkan gigi saat tidur (atau diberitahu oleh keluarga/pasangan)?",
+          "scale": "likert_5",
+          "weight": 3.0,
+          "source": "Sleep bruxism indicator (DC/TMD Axis I parafunctional)"
+        },
+        {
+          "id": "B2",
+          "type": "core",
+          "category": "bruxism",
+          "question_id": "Seberapa sering Anda menyadari mengatupkan rahang dengan keras di siang hari (terutama saat stres atau fokus)?",
+          "scale": "likert_5",
+          "weight": 2.5,
+          "source": "Awake bruxism indicator"
+        },
+        {
+          "id": "B3",
+          "type": "conditional",
+          "category": "dental_sensitivity",
+          "question_id": "Seberapa sering Anda merasakan gigi sensitif terhadap makanan atau minuman dingin/panas?",
+          "scale": "likert_5",
+          "weight": 1.5,
+          "trigger_condition": "A4 >= 2 OR A5 >= 2 OR A6 >= 2",
+          "trigger_explanation_id": "Muncul jika ada gejala gangguan rahang"
+        },
+        {
+          "id": "B4",
+          "type": "conditional",
+          "category": "chewing_difficulty",
+          "question_id": "Seberapa sering Anda mengalami kesulitan atau ketidaknyamanan saat mengunyah makanan keras (seperti daging, kacang, apel)?",
+          "scale": "likert_5",
+          "weight": 2.0,
+          "trigger_condition": "A4 >= 2 OR A5 >= 2 OR A6 >= 2"
+        }
+      ]
+    },
+
+    {
+      "section_id": "C",
+      "section_name_id": "Stres & Gaya Hidup",
+      "section_description_id": "Faktor psikososial yang dapat memengaruhi kesehatan rahang.",
+      "items": [
+        {
+          "id": "C1",
+          "type": "conditional",
+          "category": "stress",
+          "question_id": "Dalam sebulan terakhir, seberapa sering Anda merasa stres, cemas, atau tertekan?",
+          "scale": "likert_5",
+          "weight": 1.5,
+          "trigger_condition": "A1 >= 2 OR B1 >= 2 OR B2 >= 2",
+          "source": "Adapted from PHQ-4 (DC/TMD Axis II)"
+        },
+        {
+          "id": "C2",
+          "type": "conditional",
+          "category": "sleep",
+          "question_id": "Seberapa sering Anda mengalami gangguan tidur (sulit tidur, sering terbangun, atau merasa tidak segar saat bangun)?",
+          "scale": "likert_5",
+          "weight": 1.5,
+          "trigger_condition": "A1 >= 2 OR B1 >= 2"
+        },
+        {
+          "id": "C3",
+          "type": "conditional",
+          "category": "parafunctional",
+          "question_id": "Seberapa sering Anda menyadari kebiasaan seperti menggigit kuku, mengunyah pensil, atau mengunyah permen karet berlebihan?",
+          "scale": "likert_5",
+          "weight": 1.0,
+          "trigger_condition": "B1 >= 2 OR B2 >= 2"
+        }
+      ]
+    },
+
+    {
+      "section_id": "D",
+      "section_name_id": "Riwayat Medis",
+      "section_description_id": "Informasi medis yang penting untuk evaluasi.",
+      "items": [
+        {
+          "id": "D1",
+          "type": "conditional",
+          "category": "trauma",
+          "question_id": "Apakah Anda pernah mengalami trauma atau cedera pada rahang atau wajah (kecelakaan, jatuh, terbentur)?",
+          "scale": "likert_5_custom",
+          "scale_options": [
+            {"value": 0, "label_id": "Tidak pernah"},
+            {"value": 1, "label_id": "Pernah, > 5 tahun lalu"},
+            {"value": 2, "label_id": "Pernah, 1-5 tahun lalu"},
+            {"value": 3, "label_id": "Pernah, < 1 tahun lalu"},
+            {"value": 4, "label_id": "Baru saja (< 1 bulan)"}
+          ],
+          "weight": 2.5,
+          "trigger_condition": "A1 >= 2 OR A4 >= 2"
+        },
+        {
+          "id": "D2",
+          "type": "conditional",
+          "category": "dental_history",
+          "question_id": "Apakah Anda sedang atau pernah menjalani perawatan ortodontik atau memakai gigi tiruan?",
+          "scale": "likert_5_custom",
+          "scale_options": [
+            {"value": 0, "label_id": "Tidak pernah"},
+            {"value": 1, "label_id": "Pernah, sudah selesai"},
+            {"value": 2, "label_id": "Sedang memakai retainer/aligner"},
+            {"value": 3, "label_id": "Sedang pakai kawat gigi/behel"},
+            {"value": 4, "label_id": "Memakai gigi tiruan/bridge"}
+          ],
+          "weight": 1.0,
+          "trigger_condition": "A1 >= 2 OR A4 >= 2"
+        }
+      ]
+    },
+
+    {
+      "section_id": "E",
+      "section_name_id": "Demografi",
+      "section_description_id": "Informasi dasar untuk personalisasi rekomendasi.",
+      "all_mandatory": true,
+      "items": [
+        {
+          "id": "E1",
+          "type": "core",
+          "category": "demographics",
+          "question_id": "Berapa usia Anda saat ini?",
+          "scale": "categorical",
+          "scale_options": [
+            {"value": 0, "label_id": "Di bawah 18 tahun"},
+            {"value": 1, "label_id": "18-30 tahun"},
+            {"value": 2, "label_id": "31-45 tahun"},
+            {"value": 3, "label_id": "46-60 tahun"},
+            {"value": 4, "label_id": "Di atas 60 tahun"}
+          ],
+          "weight_modifier": "age_modifier",
+          "note": "TMD prevalence puncak di usia 20-40 tahun"
+        },
+        {
+          "id": "E2",
+          "type": "core",
+          "category": "dental_history",
+          "question_id": "Kapan terakhir kali Anda memeriksakan gigi ke dokter?",
+          "scale": "categorical",
+          "scale_options": [
+            {"value": 0, "label_id": "Kurang dari 6 bulan lalu"},
+            {"value": 1, "label_id": "6-12 bulan lalu"},
+            {"value": 2, "label_id": "1-2 tahun lalu"},
+            {"value": 3, "label_id": "2-5 tahun lalu"},
+            {"value": 4, "label_id": "Lebih dari 5 tahun / Belum pernah"}
+          ],
+          "weight": 1.0
+        },
+        {
+          "id": "E3",
+          "type": "core",
+          "category": "demographics",
+          "question_id": "Jenis kelamin",
+          "scale": "categorical",
+          "scale_options": [
+            {"value": 0, "label_id": "Laki-laki"},
+            {"value": 1, "label_id": "Perempuan"},
+            {"value": 2, "label_id": "Tidak ingin menjawab"}
+          ],
+          "weight_modifier": "gender_modifier",
+          "note": "TMD 2-3x lebih sering pada perempuan (Slade et al. 2013)"
+        }
+      ]
+    }
+  ],
+
+  "scoring_logic": {
+    "version": "v0.1_outline",
+    "note": "Detailed implementation di Phase 3.2",
+    "formula_outline": {
+      "tmj_pain_score": "weighted_sum(A1, A2, A3) * w_pain",
+      "tmj_dysfunction_score": "weighted_sum(A4, A5, A6) * w_dysfunction",
+      "bruxism_score": "weighted_sum(B1, B2) * w_bruxism",
+      "stress_modifier": "weighted_sum(C1, C2, C3) if answered, else 0",
+      "trauma_modifier": "D1 * w_trauma if answered, else 0",
+      "demographics_modifier": "f(E1, E3)  -- age * gender adjustment",
+      "image_indicator": "from_phase1_yolo_output(wear_pattern, asymmetry)",
+      "final_tmj_risk": "normalize_to_0_100(sum_all_components)"
+    },
+    "triage_thresholds": {
+      "low": "0-30",
+      "moderate": "31-60",
+      "high": "61-100"
+    },
+    "demographics_modifiers": {
+      "age_modifier": {
+        "0": 0.7,
+        "1": 1.0,
+        "2": 1.2,
+        "3": 1.0,
+        "4": 0.8
+      },
+      "gender_modifier": {
+        "0": 1.0,
+        "1": 1.5,
+        "2": 1.0
+      }
+    }
+  },
+
+  "ui_behavior": {
+    "core_section_order": ["A", "B (B1-B2 only)", "E"],
+    "conditional_logic_explanation": "Conditional items hanya muncul jika trigger_condition terpenuhi. Implementasikan di frontend sebagai progressive disclosure.",
+    "save_partial_progress": true,
+    "show_progress_bar": true,
+    "estimated_completion_messages": {
+      "8_items": "~2 menit",
+      "13_items": "~3 menit",
+      "18_items": "~5 menit"
+    }
+  },
+
+  "disclaimers": {
+    "before_questionnaire": "Hasil screening ini bukan diagnosis medis. Semua kondisi memerlukan konfirmasi oleh dokter gigi. Pertanyaan ini diadaptasi dari standar internasional DC/TMD untuk membantu identifikasi awal.",
+    "after_completion": "Hasil ini merupakan indikasi awal berdasarkan kuesioner dan analisis foto. Untuk diagnosis pasti dan rencana perawatan, silakan konsultasikan dengan dokter gigi.",
+    "high_risk_warning": "Hasil menunjukkan kemungkinan gangguan sendi rahang (TMD). Disarankan untuk segera berkonsultasi dengan dokter gigi untuk pemeriksaan klinis lebih lanjut.",
+    "data_privacy": "Data Anda dirahasiakan dan hanya digunakan untuk keperluan screening medis. Tidak akan dibagikan ke pihak ketiga tanpa izin Anda."
+  }
+}
